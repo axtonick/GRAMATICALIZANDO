@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma — Gramaticalizando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+  <link rel="stylesheet" href="../assets/css/cronograma.css">
+  <link rel="stylesheet" href="../assets/css/redacao.css">
+</head>
+<body class="dashboard-shell">
+  <header class="dashboard-topbar"><div class="dashboard-container"><a class="dashboard-brand" href="/pages/home.html"><img src="/assets/img/logo-icon.png" alt="Gramaticalizando" class="dashboard-brand-logo" style="height:36px;width:36px;object-fit:contain;border-radius:8px;margin-right:8px"><div><div class="dashboard-title">Gramaticalizando</div><div>Ambiente do aluno</div></div></a><button class="menu-btn btn" type="button" data-mobile-menu-button>☰</button><nav class="nav-links" data-mobile-menu><a href="/pages/home.html">Home</a><a href="/pages/portugues.html">Português</a><a href="/pages/redacao.html">Redação</a><a href="/pages/videoaulas.html">Videoaulas</a><a href="/pages/simulados.html">Simulados</a><a href="/pages/materiais.html">Material</a><a class="active" href="/pages/cronograma.html">Cronograma</a></nav><div class="dashboard-user"><button type="button" class="dashboard-user-button" data-profile-button><span class="dashboard-user-avatar">U</span><span>Meu perfil</span></button><div class="user-menu" data-profile-menu><a href="/pages/login.html">Sair</a></div></div></div></header>
+  <main class="dashboard-main">
+    <section class="dashboard-hero redacao-hero">
+      <div class="welcome-panel">
+        <p class="dashboard-title">CRONOGRAMA</p>
+        <h1 id="planTitle">Meu plano de estudos</h1>
+        <p id="planObjective">Acompanhe suas etapas e marque cada estudo concluído.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#scheduleList">Ver etapas</a>
+          <a class="btn btn-secondary" href="/pages/portugues.html">Voltar para Português</a>
+        </div>
+      </div>
+
+      <div class="welcome-illustration redacao-hero-visual">
+        <div class="hero-photo-frame">
+          <img src="/assets/img/home.png" alt="Pessoa estudando" class="welcome-illustration-image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section redacao-start-section">
+      <h2>Organizar a semana</h2>
+      <p>Planeje seus estudos para manter a rotina consistente.</p>
+
+      <div class="redacao-start-grid">
+        <article class="redacao-option-card">
+          <div class="redacao-option-icon">📅</div>
+          <h3>Planejamento semanal</h3>
+          <p>Organize os conteúdos e os blocos de estudo por dia.</p>
+          <span class="redacao-arrow">›</span>
+        </article>
+
+        <article class="redacao-option-card">
+          <div class="redacao-option-icon">✅</div>
+          <h3>Etapas concluídas</h3>
+          <p>Marque cada tarefa realizada e acompanhe o avanço.</p>
+          <span class="redacao-arrow">›</span>
+        </article>
+
+        <article class="redacao-option-card">
+          <div class="redacao-option-icon">🎯</div>
+          <h3>Foco do mês</h3>
+          <p>Mantenha seus objetivos claros e sua rotina em movimento.</p>
+          <span class="redacao-arrow">›</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section redacao-featured-section">
+      <div class="theme-card">
+        <div class="theme-card-top">
+          <div class="theme-card-label">
+            <span class="theme-pill">Próxima etapa</span>
+            <p>Foco do plano</p>
+          </div>
+
+          <div class="theme-card-meta">
+            <div class="meta-item">
+              <span class="meta-icon">◔</span>
+              <span>2h</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">▣</span>
+              <span>Semanal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card-content">
+          <div class="theme-card-title">
+            <span class="theme-badge">✦</span>
+            <h3>"Revisão de interpretação e redação com foco em produção"</h3>
+          </div>
+
+          <div class="theme-card-tags">
+            <span>Leitura</span>
+            <span>Redação</span>
+            <span>Planejamento</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary" href="#scheduleList">Acessar plano</a>
+      </div>
+    </section>
+
+    <section class="page-section redacao-progress-section">
+      <div class="section-heading">
+        <div>
+          <p class="dashboard-title">Seu progresso</p>
+          <h2>Veja seu avanço</h2>
+        </div>
+        <a href="#" class="section-link">Ver detalhes</a>
+      </div>
+
+      <div class="progress-grid">
+        <article class="progress-stat">
+          <div class="progress-icon pink">0</div>
+          <div class="progress-copy">
+            <h3>Etapas concluídas</h3>
+            <p>Você está no caminho</p>
+          </div>
+        </article>
+
+        <article class="progress-stat">
+          <div class="progress-icon purple">—</div>
+          <div class="progress-copy">
+            <h3>Período</h3>
+            <p id="planPeriod">Não definido</p>
+          </div>
+        </article>
+
+        <article class="progress-stat">
+          <div class="progress-icon green">0</div>
+          <div class="progress-copy">
+            <h3>Progresso</h3>
+            <p id="planProgressText">0 de 0 etapas</p>
+          </div>
+        </article>
+
+        <article class="progress-stat">
+          <div class="progress-icon orange">0 dias</div>
+          <div class="progress-copy">
+            <h3>Sequência</h3>
+            <p>Sua rotina ativa</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section redacao-history-section">
+      <div class="section-heading history-header">
+        <div>
+          <p class="dashboard-title">Cronograma</p>
+          <h2>Etapas do seu plano</h2>
+        </div>
+
+        <div class="essay-tabs" aria-label="Filtros do cronograma">
+          <button type="button" class="essay-tab is-active">Todas</button>
+          <button type="button" class="essay-tab">Pendentes</button>
+          <button type="button" class="essay-tab">Concluídas</button>
+          <button type="button" class="essay-tab">Semana</button>
+        </div>
+      </div>
+
+      <div class="panel-card" style="margin-top:1rem;">
+        <div class="schedule-plan-summary">
+          <div><span>Período</span><strong id="planPeriodSecondary">Não definido</strong></div>
+          <div><span>Progresso</span><strong id="planProgressTextSecondary">0 de 0 etapas</strong></div>
+          <div class="schedule-progress-track"><div id="planProgressBar"></div></div>
+        </div>
+
+        <div class="panel-header" style="margin-top:1rem;">
+          <h2>Etapas do plano</h2>
+          <span id="stageCount" class="status-badge">0</span>
+        </div>
+        <div id="scheduleList" class="schedule-stage-list"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="../assets/js/app.js"></script>
+  <script type="module" src="../assets/js/cronograma.js"></script>
+</body>
+</html>

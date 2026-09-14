@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "gramaticalizando",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.js" },
+    { "source": "/pages/:page", "destination": "/pages/:page.html" },
+    { "source": "/professor/:page", "destination": "/professor/:page.html" },
+    { "source": "/pages", "destination": "/index.html" },
+    { "source": "/professor", "destination": "/professor/index.html" },
+    { "source": "/aluno", "destination": "/aluno.html" },
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin-login", "destination": "/admin-login.html" },
+    { "source": "/diagnostico", "destination": "/diagnostico.html" },
+    { "source": "/redacao", "destination": "/redacao.html" },
+    { "source": "/aula", "destination": "/aula.html" },
+    { "source": "/exercicios", "destination": "/exercicios.html" },
+    { "source": "/exercicio", "destination": "/exercicio.html" },
+    { "source": "/editor-aula", "destination": "/editor-aula.html" },
+    { "source": "/editor-exercicio", "destination": "/editor-exercicio.html" }
+  ]
+}

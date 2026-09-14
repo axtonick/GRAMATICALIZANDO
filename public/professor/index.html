@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor — Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/professor.css">
+</head>
+<body class="professor-shell">
+  <div class="professor-layout">
+    <aside class="professor-sidebar" data-mobile-menu>
+      <a class='professor-brand' href='/professor/index.html'>
+        <img src="/assets/img/logo-icon.png" alt="Gramaticalizando" style="height: 36px; width: 36px; object-fit: contain; border-radius: 8px; margin-right: 8px; vertical-align: middle;" />
+        <div class="professor-brand-text">
+          <span>Gramaticalizando</span>
+          <small>Painel do professor</small>
+        </div>
+      </a>
+      <nav class="professor-sidebar-nav">
+        <a class='professor-nav-item active' data-nav-item='dashboard' href='/professor/index.html'>
+          <span class="professor-nav-icon">🏠</span>
+          Painel
+        </a>
+        <a class='professor-nav-item' data-nav-item='students' href='/professor/alunos.html'>
+          <span class="professor-nav-icon">👥</span>
+          Alunos
+        </a>
+        <a class='professor-nav-item' data-nav-item='essays' href='/professor/redacoes.html'>
+          <span class="professor-nav-icon">📝</span>
+          Redações
+        </a>
+        <a class='professor-nav-item' data-nav-item='portugues' href='/professor/portugues.html'>
+          <span class="professor-nav-icon">📖</span>
+          Português
+        </a>
+        <a class='professor-nav-item' data-nav-item='diagnostics' href='/professor/diagnosticos.html'>
+          <span class="professor-nav-icon">📊</span>
+          Diagnósticos
+        </a>
+        <a class='professor-nav-item' data-nav-item='corrections' href='/professor/correcoes.html'>
+          <span class="professor-nav-icon">✏️</span>
+          Correções
+        </a>
+        <a class='professor-nav-item' data-nav-item='videoaulas' href='/professor/videoaulas.html'>
+          <span class="professor-nav-icon">🎥</span>
+          Videoaulas
+        </a>
+        <a class='professor-nav-item' data-nav-item='simulados' href='/professor/simulados.html'>
+          <span class="professor-nav-icon">🧾</span>
+          Simulados
+        </a>
+        <a class='professor-nav-item' data-nav-item='materiais' href='/professor/materiais.html'>
+          <span class="professor-nav-icon">📚</span>
+          Material
+        </a>
+        <a class='professor-nav-item' data-nav-item='cronograma' href='/professor/cronograma.html'>
+          <span class="professor-nav-icon">📅</span>
+          Cronograma
+        </a>
+        <a class='professor-nav-item' data-nav-item='planos' href='/professor/planos.html'>
+          <span class="professor-nav-icon">🧩</span>
+          Planos
+        </a>
+      </nav>
+      <div class="professor-sidebar-footer">
+        <button id="logoutBtn" class="btn btn-secondary" type="button">Sair</button>
+      </div>
+    </aside>
+    <main class="professor-main">
+      <header class="professor-topbar">
+        <button class="professor-menu-toggle" type="button" data-mobile-menu-button aria-expanded="false">☰</button>
+        <div class="professor-greeting">
+          <p class="professor-breadcrumb">Painel / Dashboard</p>
+          <h1>Olá, Professor 👋</h1>
+          <p>Seu ambiente está pronto para acompanhar alunos, redações e conteúdos.</p>
+        </div>
+        <div class="professor-topbar-tools">
+          <label class="topbar-search" aria-label="Buscar no painel">
+            <span>⌕</span>
+            <input type="search" placeholder="Buscar no painel" />
+          </label>
+          <button class="icon-action" type="button" aria-label="Notificações">🔔</button>
+          <div class="professor-profile-pill">
+            <span class="professor-profile-avatar">P</span>
+            <div>
+              <strong>Professor</strong>
+              <small>Online</small>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="professor-content">
+        <div class="summary-grid">
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Alunos</span>
+              <span class="summary-trend positive">+12%</span>
+            </div>
+            <strong id="summaryStudents">0</strong>
+            <span>Ativos na plataforma</span>
+          </article>
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Redações</span>
+              <span class="summary-trend warning">Hoje</span>
+            </div>
+            <strong id="summaryPendingEssays">0</strong>
+            <span>Pendentes para revisão</span>
+          </article>
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Correções</span>
+              <span class="summary-trend positive">+8%</span>
+            </div>
+            <strong id="summaryReviewedEssays">0</strong>
+            <span>Concluídas na semana</span>
+          </article>
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Diagnósticos</span>
+              <span class="summary-trend neutral">Total</span>
+            </div>
+            <strong id="summaryDiagnostics">0</strong>
+            <span>Realizados pela turma</span>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel-card dashboard-feature-card">
+            <div class="panel-header">
+              <div>
+                <p class="panel-kicker">Visão geral</p>
+                <h2>Resumo da semana</h2>
+              </div>
+              <div class="panel-tools">
+                <button class="btn btn-secondary" type="button">Exportar</button>
+              </div>
+            </div>
+
+            <div class="dashboard-quick-actions">
+              <a class="quick-action-card" href="/professor/alunos.html">
+                <span class="quick-action-icon">👥</span>
+                <div>
+                  <strong>Alunos</strong>
+                  <small>Gerenciar turmas</small>
+                </div>
+              </a>
+              <a class="quick-action-card" href="/professor/redacoes.html">
+                <span class="quick-action-icon">📝</span>
+                <div>
+                  <strong>Redações</strong>
+                  <small>Revisar envios</small>
+                </div>
+              </a>
+              <a class="quick-action-card" href="/professor/portugues.html">
+                <span class="quick-action-icon">📖</span>
+                <div>
+                  <strong>Português</strong>
+                  <small>Conteúdos e aulas</small>
+                </div>
+              </a>
+            </div>
+
+            <div class="insight-row">
+              <div class="insight-item">
+                <span class="value-pill purple">+12%</span>
+                <div>
+                  <strong>Engajamento</strong>
+                  <small>vs. semana anterior</small>
+                </div>
+              </div>
+              <div class="insight-item">
+                <span class="value-pill green">76%</span>
+                <div>
+                  <strong>Conclusão</strong>
+                  <small>de conteúdos ativos</small>
+                </div>
+              </div>
+              <div class="insight-item">
+                <span class="value-pill orange">3 dias</span>
+                <div>
+                  <strong>Tempo médio</strong>
+                  <small>para correção</small>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="dashboard-side-stack">
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <p class="panel-kicker">Prioridade</p>
+                  <h2>Próximos passos</h2>
+                </div>
+              </div>
+              <ul class="priority-list">
+                <li>
+                  <div>
+                    <strong>Correções pendentes</strong>
+                    <small>5 redações aguardando revisão</small>
+                  </div>
+                  <span class="priority-tag warning">Alta</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>Diagnósticos não concluídos</strong>
+                    <small>3 alunos ainda não finalizaram</small>
+                  </div>
+                  <span class="priority-tag info">Média</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>Conteúdo novo</strong>
+                    <small>Crie o próximo módulo de Português</small>
+                  </div>
+                  <span class="priority-tag success">Nova</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <p class="panel-kicker">Resumo</p>
+                  <h2>Indicadores</h2>
+                </div>
+              </div>
+              <div class="mini-stats">
+                <div class="mini-stat">
+                  <span>Alunos ativos</span>
+                  <strong>84%</strong>
+                </div>
+                <div class="mini-stat">
+                  <span>Taxa de conclusão</span>
+                  <strong>76%</strong>
+                </div>
+                <div class="mini-stat">
+                  <span>Conteúdos no mês</span>
+                  <strong>18</strong>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <section class="panel-card dashboard-activity-panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-kicker">Destaques</p>
+                <h2>Matérias em destaque</h2>
+              </div>
+            </div>
+            <div class="filter-group" role="list" aria-label="Matérias disponíveis">
+              <a class='filter-pill active' href='/professor/portugues.html'>Português</a>
+              <a class='filter-pill' href='/professor/redacoes.html'>Redação</a>
+              <a class='filter-pill' href='/professor/videoaulas.html'>Videoaulas</a>
+            </div>
+          </section>
+
+          <section class="panel-card dashboard-activity-panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-kicker">Atividade</p>
+                <h2>Eventos recentes</h2>
+              </div>
+              <a class='btn btn-secondary' href='/professor/redacoes.html'>Ver tudo</a>
+            </div>
+            <div id="recentActivities" class="activities-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/js/professor/dashboard.js"></script>
+</body>
+</html>

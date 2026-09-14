@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor — Simulados</title>
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/professor.css">
+</head>
+<body class="professor-shell">
+  <div class="professor-layout">
+    <aside class="professor-sidebar" data-mobile-menu>
+      <a class='professor-brand' href='/professor/index.html'>
+        <img src="/assets/img/logo-icon.png" alt="Gramaticalizando" style="height: 36px; width: 36px; object-fit: contain; border-radius: 8px; margin-right: 8px; vertical-align: middle;" />
+        <div class="professor-brand-text">
+          <span>Gramaticalizando</span>
+          <small>Painel do professor</small>
+        </div>
+      </a>
+      <nav class="professor-sidebar-nav">
+        <a class='professor-nav-item' data-nav-item='dashboard' href='/professor/index.html'>
+          <span class="professor-nav-icon">🏠</span>
+          Painel
+        </a>
+        <a class='professor-nav-item' data-nav-item='students' href='/professor/alunos.html'>
+          <span class="professor-nav-icon">👥</span>
+          Alunos
+        </a>
+        <a class='professor-nav-item' data-nav-item='essays' href='/professor/redacoes.html'>
+          <span class="professor-nav-icon">📝</span>
+          Redações
+        </a>
+        <a class='professor-nav-item' data-nav-item='portugues' href='/professor/portugues.html'>
+          <span class="professor-nav-icon">📖</span>
+          Português
+        </a>
+        <a class='professor-nav-item' data-nav-item='diagnostics' href='/professor/diagnosticos.html'>
+          <span class="professor-nav-icon">📊</span>
+          Diagnósticos
+        </a>
+        <a class='professor-nav-item' data-nav-item='corrections' href='/professor/correcoes.html'>
+          <span class="professor-nav-icon">✏️</span>
+          Correções
+        </a>
+        <a class='professor-nav-item' data-nav-item='videoaulas' href='/professor/videoaulas.html'>
+          <span class="professor-nav-icon">🎥</span>
+          Videoaulas
+        </a>
+        <a class='professor-nav-item active' data-nav-item='simulados' href='/professor/simulados.html'>
+          <span class="professor-nav-icon">🧾</span>
+          Simulados
+        </a>
+        <a class='professor-nav-item' data-nav-item='materiais' href='/professor/materiais.html'>
+          <span class="professor-nav-icon">📚</span>
+          Material
+        </a>
+        <a class='professor-nav-item' data-nav-item='cronograma' href='/professor/cronograma.html'>
+          <span class="professor-nav-icon">📅</span>
+          Cronograma
+        </a>
+        <a class='professor-nav-item' data-nav-item='planos' href='/professor/planos.html'>
+          <span class="professor-nav-icon">🧩</span>
+          Planos
+        </a>
+      </nav>
+      <div class="professor-sidebar-footer">
+        <button id="logoutBtn" class="btn btn-secondary" type="button">Sair</button>
+      </div>
+    </aside>
+    <main class="professor-main">
+      <header class="professor-topbar">
+        <button class="professor-menu-toggle" type="button" data-mobile-menu-button aria-expanded="false">☰</button>
+        <div class="professor-greeting">
+          <p class="professor-breadcrumb">Painel / Simulados</p>
+          <h1>Simulados</h1>
+          <p>Crie e gerencie simulados para seus alunos.</p>
+        </div>
+        <div class="professor-topbar-tools">
+          <label class="topbar-search" aria-label="Pesquisar simulados">
+            <span>⌕</span>
+            <input type="search" placeholder="Pesquisar simulados..." />
+          </label>
+          <button class="icon-action" type="button" aria-label="Notificações">🔔</button>
+          <div class="professor-profile-pill">
+            <span class="professor-profile-avatar">P</span>
+            <div>
+              <strong>Professor</strong>
+              <small>Online</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="professor-content">
+        <div class="students-summary-grid">
+          <article class="summary-card students-summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Simulados</span>
+              <span class="summary-trend positive">Total</span>
+            </div>
+            <strong id="summarySimuladosTotal">0</strong>
+            <span>Simulados cadastrados</span>
+          </article>
+          <article class="summary-card students-summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Ativos</span>
+              <span class="summary-trend positive">Disponíveis</span>
+            </div>
+            <strong id="summarySimuladosAtivos">0</strong>
+            <span>Disponíveis para os alunos</span>
+          </article>
+          <article class="summary-card students-summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Respostas</span>
+              <span class="summary-trend warning">Hoje</span>
+            </div>
+            <strong id="summarySimuladosRespostas">0</strong>
+            <span>Envios recentes</span>
+          </article>
+          <article class="summary-card students-summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Média</span>
+              <span class="summary-trend neutral">Desempenho</span>
+            </div>
+            <strong id="summarySimuladosMedia">0%</strong>
+            <span>Taxa média de acerto</span>
+          </article>
+        </div>
+
+        <div class="students-toolbar">
+          <div class="filter-group" role="tablist" aria-label="Filtros de simulados">
+            <button type="button" class="filter-pill active" data-filter="all">Todos</button>
+            <button type="button" class="filter-pill" data-filter="active">Ativos</button>
+            <button type="button" class="filter-pill" data-filter="scheduled">Agendados</button>
+          </div>
+          <div class="students-toolbar-actions">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='./simulados-criar.html'">+ Criar simulado</button>
+          </div>
+        </div>
+
+        <section class="panel-card students-list-panel">
+          <div class="students-list-header">
+            <div>
+              <p class="panel-kicker">Simulados</p>
+              <h2>Simulados cadastrados</h2>
+            </div>
+            <small>Monte simulados personalizados com questões por tema e nível.</small>
+          </div>
+          <div id="simuladoList" class="card-row"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/js/professor/base.js"></script>
+  <script type="module" src="../assets/js/professor/simulados.js"></script>
+</body>
+</html>
