@@ -39,6 +39,9 @@
 .schedule-stage.is-complete .schedule-stage-status { color: #15803d; }
 .schedule-empty { padding: 2rem; text-align: center; color: #6b607d; }
 .schedule-empty p { margin-bottom: 0; }
+.schedule-question { margin: 0.9rem 0; padding: 0.9rem 1rem; border: 1px solid rgba(124, 58, 237, 0.12); border-radius: 0.8rem; background: #faf8ff; color: #30234a; }
+.schedule-question p { margin: 0.45rem 0; color: #30234a; }
+.schedule-question ol { margin: 0; padding-left: 1.25rem; color: #5b4b73; }
 
 @media (max-width: 720px) {
   .schedule-plan-summary { grid-template-columns: 1fr; }

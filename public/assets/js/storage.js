@@ -123,6 +123,30 @@ export const deleteSimulation = (id) => {
   return simulations;
 };
 
+const LS_SIMULATION_RESULTS = 'app_simulado_resultados_v1';
+
+export const getSimulationResults = () => {
+  try {
+    const raw = localStorage.getItem(LS_SIMULATION_RESULTS);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+};
+
+export const getSimulationResult = (simulationId, studentId) => {
+  if (!simulationId || !studentId) return null;
+  return getSimulationResults().find((result) => result.simulationId === simulationId && result.studentId === studentId) || null;
+};
+
+export const saveSimulationResult = (result) => {
+  const results = getSimulationResults().filter((item) => !(item.simulationId === result.simulationId && item.studentId === result.studentId));
+  const nextResult = { ...result, concluidoEm: result.concluidoEm || new Date().toISOString() };
+  results.push(nextResult);
+  localStorage.setItem(LS_SIMULATION_RESULTS, JSON.stringify(results));
+  return nextResult;
+};
+
 const LS_CONTENTS = 'app_contents_v1';
 
 export const getContents = () => {
@@ -402,15 +426,32 @@ export const assignPlanToStudent = (studentId, planId, dates = {}) => {
 };
 
 const LS_SCHEDULE = 'app_cronograma_v1';
+const LS_SCHEDULES = 'app_cronogramas_v1';
 
 const createDefaultStudyPlan = () => ({
   id: 'plan-default',
   nome: 'Plano de estudos',
+  titulo: 'Plano de estudos',
   objetivo: 'Organize sua rotina de estudos.',
   inicio: '',
   fim: '',
   etapas: []
 });
+
+export const getStudyPlans = () => {
+  try {
+    const raw = localStorage.getItem(LS_SCHEDULES);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+};
+
+export const saveStudyPlans = (plans) => {
+  localStorage.setItem(LS_SCHEDULES, JSON.stringify(plans));
+  return plans;
+};
 
 export const getStudyPlan = () => {
   try {
@@ -431,7 +472,7 @@ export const getStudyPlan = () => {
           concluido: Boolean(item.concluido)
         })) };
       }
-      if (parsed && typeof parsed === 'object') return { ...createDefaultStudyPlan(), ...parsed, etapas: Array.isArray(parsed.etapas) ? parsed.etapas : [] };
+      if (parsed && typeof parsed === 'object') return { ...createDefaultStudyPlan(), ...parsed, titulo: parsed.titulo || parsed.nome || 'Plano de estudos', etapas: Array.isArray(parsed.etapas) ? parsed.etapas : [] };
     }
   } catch (e) {}
   return createDefaultStudyPlan();
@@ -439,6 +480,8 @@ export const getStudyPlan = () => {
 
 export const saveStudyPlan = (plan) => {
   localStorage.setItem(LS_SCHEDULE, JSON.stringify(plan));
+  const plans = getStudyPlans().filter((item) => item.id !== plan.id);
+  saveStudyPlans([...plans, plan]);
   return plan;
 };
 

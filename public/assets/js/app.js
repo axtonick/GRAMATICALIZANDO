@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const session = getSession();
   const protectedPages = [
     'home.html', 'redacao.html', 'portugues.html', 'videoaulas.html',
-    'simulados.html', 'materiais.html', 'cronograma.html', 'diagnostico.html', 'portugues-conteudo.html'
+    'simulados.html', 'simulado-conteudo.html', 'materiais.html', 'cronograma.html', 'diagnostico.html', 'portugues-conteudo.html'
   ];
   const needsDiagnostic = [
     'home.html', 'redacao.html', 'portugues.html', 'videoaulas.html',
@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'redacao.html': 'redacao',
     'videoaulas.html': 'videoaulas',
     'simulados.html': 'simulados',
+    'simulado-conteudo.html': 'simulados',
     'materiais.html': 'material',
     'cronograma.html': 'cronograma',
     'portugues-conteudo.html': 'portugues'
