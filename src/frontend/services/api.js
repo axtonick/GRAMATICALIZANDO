@@ -1,7 +1,10 @@
-/**
- * AXION Client Apps - Gramaticalizando
- * Canonical API Service Client (ESM)
- */
+const configuredApiUrl = import.meta.env.VITE_API_URL || '';
+const apiBaseUrl = configuredApiUrl.replace(/\/$/, '');
+
+function resolveApiUrl(endpoint) {
+  if (/^https?:\/\//i.test(endpoint)) return endpoint;
+  return `${apiBaseUrl}${endpoint}`;
+}
 
 export async function apiRequest(endpoint, options = {}) {
   const isFormData = options.body instanceof FormData;
@@ -19,7 +22,10 @@ export async function apiRequest(endpoint, options = {}) {
     config.body = JSON.stringify(config.body);
   }
 
-  const res = await fetch(endpoint, config);
+  const res = await fetch(resolveApiUrl(endpoint), {
+    ...config,
+    credentials: options.credentials || 'include'
+  });
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
@@ -49,6 +55,7 @@ export const diagnosticoApi = {
 };
 
 export const alunoApi = {
+  conteudosPublicos: () => apiRequest('/api/conteudos-publicos'),
   obterDashboard: (alunoId) => apiRequest(`/api/dashboard/${encodeURIComponent(alunoId)}`),
   materias: () => apiRequest('/api/materias'),
   aulas: (materiaId) => apiRequest(`/api/aulas${materiaId ? `?materia=${materiaId}` : ''}`),

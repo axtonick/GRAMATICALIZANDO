@@ -1,4 +1,5 @@
 import { initPage } from './page-base.js';
+import { alunoApi } from '../../services/api.js';
 
 initPage();
 
@@ -51,9 +52,8 @@ const renderHomeContent = ({ materias = [], aulas = [], exercicios = [] }) => {
 
 const loadHomeContent = async () => {
 	try {
-		const response = await fetch('/api/conteudos-publicos');
-		const data = await response.json();
-		if (!response.ok || !data.sucesso) throw new Error(data.mensagem || 'Falha ao carregar conteúdo.');
+		const data = await alunoApi.conteudosPublicos();
+		if (!data.sucesso) throw new Error(data.mensagem || 'Falha ao carregar conteúdo.');
 		renderHomeContent(data);
 	} catch (error) {
 		showEmpty(lessonsEl, 'Não foi possível carregar as aulas', 'Tente atualizar a página em alguns instantes.');

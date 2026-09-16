@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "vite",
+    "dev:frontend": "vite",
+    "dev:api": "node src/server.js",
     "dev:server": "node src/server.js",
+    "preview": "vite preview",
     "build": "vite build",
     "admin:create": "node scripts/criar-admin.js"
   },

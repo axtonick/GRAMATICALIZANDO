@@ -2,7 +2,9 @@ const path = require("path");
 const fs = require("fs");
 
 const ROOT_DIR = path.resolve(__dirname, "../../");
-const PUBLIC_DIR = path.join(ROOT_DIR, "public");
+const FRONTEND_DIR = path.join(ROOT_DIR, "src", "frontend");
+const DIST_DIR = path.join(ROOT_DIR, "dist");
+const PUBLIC_DIR = process.env.NODE_ENV === "production" ? DIST_DIR : FRONTEND_DIR;
 
 const isVercel = Boolean(process.env.VERCEL);
 const DATA_DIR = isVercel ? "/tmp/gramaticalizando_data" : ROOT_DIR;
@@ -35,6 +37,8 @@ if (isVercel) {
 
 module.exports = {
     ROOT_DIR,
+    FRONTEND_DIR,
+    DIST_DIR,
     PUBLIC_DIR,
     DATA_DIR,
     USUARIOS: path.join(DATA_DIR, "usuarios.json"),
