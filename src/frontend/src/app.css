@@ -1,0 +1,57 @@
+#root { min-height: 100vh; }
+
+.react-app-shell { min-height: 100vh; background: #f7f7f2; color: #17211b; }
+.react-topbar { min-height: 76px; display: flex; align-items: center; gap: 2rem; padding: 0 5vw; background: #f7f7f2; border-bottom: 1px solid #d9dfd4; }
+.react-brand { display: inline-flex; align-items: center; gap: .75rem; color: inherit; text-decoration: none; font-weight: 800; letter-spacing: .02em; white-space: nowrap; }
+.react-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+.react-brand small { display: block; margin-top: .12rem; color: #6b766b; font-size: .68rem; font-weight: 600; letter-spacing: 0; }
+.react-topbar nav { display: flex; align-items: center; gap: .3rem; flex: 1; }
+.react-topbar nav a, .react-professor-sidebar nav a { padding: .65rem .8rem; color: #59665a; border-radius: 7px; text-decoration: none; font-size: .85rem; font-weight: 700; }
+.react-topbar nav a:hover, .react-topbar nav a.active, .react-professor-sidebar nav a:hover, .react-professor-sidebar nav a.active { color: #174b32; background: #dcecdf; }
+.react-user-actions { margin-left: auto; }
+.btn { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: 6px; padding: .75rem 1.05rem; text-decoration: none; font: inherit; font-size: .86rem; font-weight: 800; cursor: pointer; }
+.btn-primary { color: #fff; background: #17613e; }
+.btn-secondary { color: #174b32; background: #e4eee3; }
+.btn:disabled { opacity: .55; cursor: wait; }
+.menu-btn { display: none; }
+.react-landing, .react-page, .react-dashboard { width: min(1160px, calc(100% - 2rem)); margin: 0 auto; }
+.react-landing { min-height: calc(100vh - 76px); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr); gap: 4rem; align-items: center; }
+.react-landing-copy h1, .react-page h1, .react-dashboard h1 { max-width: 760px; margin: .8rem 0 1.1rem; font-size: clamp(2.8rem, 7vw, 6.5rem); line-height: .94; letter-spacing: -.06em; }
+.react-landing-copy p, .react-page-hero p, .react-dashboard > p { max-width: 600px; color: #5e6a60; font-size: 1.05rem; line-height: 1.7; }
+.react-eyebrow { color: #b04f2f; font-size: .72rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+.react-actions { display: flex; gap: .75rem; margin-top: 1.75rem; }
+.react-landing-panel { display: grid; gap: 1rem; padding: 2rem; background: #174b32; color: #f5f7ef; border-radius: 14px; box-shadow: 20px 20px 0 #d6e4d4; }
+.react-landing-panel span { padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.2); color: #c9ddca; line-height: 1.45; }
+.react-auth-page { min-height: calc(100vh - 76px); display: grid; place-items: center; padding: 2rem 1rem; }
+.react-auth-card { width: min(420px, 100%); padding: 2.25rem; background: #fff; border: 1px solid #d9dfd4; border-radius: 12px; box-shadow: 12px 12px 0 #dcecdf; }
+.react-auth-card > img { width: 42px; height: 42px; object-fit: contain; }
+.react-auth-card h1 { margin: .8rem 0 .4rem; font-size: 2rem; letter-spacing: -.04em; }
+.react-auth-card > p { color: #697469; }
+.react-form { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.react-form label { display: grid; gap: .4rem; color: #354338; font-size: .83rem; font-weight: 800; }
+.react-form input { width: 100%; box-sizing: border-box; padding: .8rem .85rem; border: 1px solid #cfd8cd; border-radius: 6px; font: inherit; }
+.react-form input:focus { outline: 2px solid #b4d5b7; border-color: #17613e; }
+.react-form p { color: #697469; font-size: .86rem; }
+.react-form a, .react-content-grid a { color: #17613e; font-weight: 800; }
+.react-error { color: #a83225 !important; margin: 0; }
+.react-page { padding: 4rem 0 6rem; }
+.react-page-hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 2rem; align-items: end; padding: 3rem; background: #dcecdf; border-radius: 14px; }
+.react-page-hero h1 { font-size: clamp(2.6rem, 6vw, 5.5rem); }
+.react-stat-panel { display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; padding: 1.2rem; background: #174b32; color: white; border-radius: 10px; }
+.react-stat-panel strong { font-size: 2.2rem; }
+.react-stat-panel span { align-self: center; color: #c9ddca; font-size: .8rem; }
+.react-content-grid, .react-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.react-content-grid article, .react-metrics strong { display: grid; gap: .7rem; padding: 1.4rem; background: #fff; border: 1px solid #d9dfd4; border-radius: 10px; }
+.react-content-grid article > span { color: #b04f2f; font-weight: 900; }
+.react-content-grid h2 { margin: 0; }
+.react-content-grid p { min-height: 3rem; color: #697469; line-height: 1.5; }
+.react-dashboard { padding: 5rem 0; }
+.react-dashboard h1 { font-size: clamp(2.6rem, 6vw, 5.5rem); }
+.react-metrics strong { color: #174b32; font-size: 1.4rem; }
+.react-metrics small { display: block; margin-top: .5rem; color: #697469; font-size: .78rem; font-weight: 600; }
+.react-professor-shell { min-height: 100vh; display: grid; grid-template-columns: 250px 1fr; background: #f7f7f2; color: #17211b; }
+.react-professor-sidebar { display: flex; flex-direction: column; gap: 2rem; padding: 1.5rem; background: #fff; border-right: 1px solid #d9dfd4; }
+.react-professor-sidebar nav { display: grid; gap: .25rem; }
+.react-professor-sidebar .btn { margin-top: auto; }
+.react-professor-main { padding: 0 5vw; }
+@media (max-width: 760px) { .react-topbar { flex-wrap: wrap; gap: 1rem; padding: .8rem 1rem; } .react-topbar nav { display: none; order: 4; width: 100%; flex-direction: column; align-items: stretch; } .react-topbar nav.open { display: flex; } .menu-btn { display: inline-flex; margin-left: auto; } .react-user-actions { margin-left: 0; } .react-landing, .react-page-hero { grid-template-columns: 1fr; } .react-landing { gap: 2rem; padding: 3rem 0; } .react-content-grid, .react-metrics { grid-template-columns: 1fr; } .react-professor-shell { grid-template-columns: 1fr; } .react-professor-sidebar { border-right: 0; border-bottom: 1px solid #d9dfd4; } .react-professor-sidebar nav { grid-template-columns: repeat(2, 1fr); } }

@@ -4,7 +4,6 @@ const path = require("path");
 const env = require("./config/env");
 const paths = require("./config/paths");
 const routes = require("./routes");
-const { protegerPaginaAdmin } = require("./middlewares/auth");
 const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
@@ -48,75 +47,16 @@ app.use(
     })
 );
 
-// Páginas administrativas protegidas
-app.get("/admin.html", protegerPaginaAdmin, (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "admin.html"));
-});
-app.get("/editor-aula.html", protegerPaginaAdmin, (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "editor-aula.html"));
-});
-app.get("/editor-exercicio.html", protegerPaginaAdmin, (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "editor-exercicio.html"));
-});
-
-// Arquivos estáticos da pasta public (sem index automático para respeitar a raiz)
+// Assets gerados pelo Vite em produção ou fontes do frontend em desenvolvimento.
 app.use(express.static(paths.PUBLIC_DIR, { index: false }));
-
-// Aliases e índices públicos compatíveis com o ambiente local e com as rewrites do Vercel
-app.get(["/pages", "/pages/"], (req, res) => {
-    res.redirect("/");
-});
-
-app.get(["/professor", "/professor/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "professor", "index.html"));
-});
-
-app.get(["/admin", "/admin/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "admin.html"));
-});
-
-app.get(["/admin-login", "/admin-login/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "admin-login.html"));
-});
-
-app.get(["/diagnostico", "/diagnostico/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "diagnostico.html"));
-});
-
-app.get(["/redacao", "/redacao/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "redacao.html"));
-});
-
-app.get(["/aula", "/aula/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "aula.html"));
-});
-
-app.get(["/exercicios", "/exercicios/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "exercicios.html"));
-});
-
-app.get(["/exercicio", "/exercicio/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "exercicio.html"));
-});
-
-app.get(["/editor-aula", "/editor-aula/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "editor-aula.html"));
-});
-
-app.get(["/editor-exercicio", "/editor-exercicio/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "editor-exercicio.html"));
-});
-
-app.get(["/aluno", "/aluno/"], (req, res) => {
-    res.sendFile(path.join(paths.PUBLIC_DIR, "aluno.html"));
-});
 
 // Rotas de API (suporta com e sem prefixo /api em serverless)
 app.use("/api", routes);
 app.use(routes);
 
-// Rota raiz serve a landing page
-app.get("/", (req, res) => {
+// Fallback da SPA React para rotas do frontend.
+app.use((req, res, next) => {
+    if (req.method !== "GET" || req.path.startsWith("/api")) return next();
     res.sendFile(path.join(paths.PUBLIC_DIR, "index.html"));
 });
 
